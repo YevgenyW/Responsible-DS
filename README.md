@@ -1,16 +1,18 @@
 # Responsible-DS
-This repo created for responsible data science project
+This repo created for responsible data science project.
 
-Project structure:
+### Project structure
 - model: contains all files related to model(s)
 - src: contains all files relates to framework
 
+### Environment installation
+Create conda environment and install dependencies:
+`conda create --name myenv --file requirements.txt`
 
-Environment installation
+Install dependencies into an existing environment:
+`conda install --name myenv --file requirements.txt`
 
-You can use requirements.txt in order to create virtual conda environment:
-conda create --name myenv --file spec-file.txt
-
+### Other
 For more details about conda virtual environment:
 https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 
