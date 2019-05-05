@@ -1,8 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-# from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
 
@@ -17,7 +16,7 @@ df = df.replace({
 	'Self_Employed': {'No': 0, 'Yes': 1},
 	'Married': {'No': 0, 'Yes': 1},
 	'Loan_Status': {'N': 0, 'Y': 1}
-	})
+})
 df.loc[df['Dependents'] == '3+', 'Dependents'] = 3
 df.loc[:, 'Dependents'] = df['Dependents'].astype('int64')
 df.head()
@@ -32,6 +31,7 @@ y_all = df['Loan_Status']
 y_all.head()
 
 X_train, X_test, y_train, y_test = train_test_split(X_all, y_all, test_size=0.2, random_state=42)
+
 model = RandomForestClassifier()
 model.fit(X_train, y_train)
 preds = model.predict(X_test)
