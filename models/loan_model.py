@@ -43,7 +43,15 @@ confusion_matrix(y_test, preds)
 
 (precision_score(y_test, preds), recall_score(y_test, preds))
 
-f1_score(y_test, preds)
+
+import pickle
+pickle_out = open("loan_model.pickle","wb")
+pickle.dump(model, pickle_out)
+pickle_out.close()
+
+X_train.to_csv('loan_model_train_data.csv', index=False)
+X_test.to_csv('loan_model_test_data.csv', index=False)
+
 
 def get_data():
 	return [X_train, X_test]
