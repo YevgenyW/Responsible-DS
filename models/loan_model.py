@@ -26,8 +26,11 @@ df['Urban'] = area_dummies['Urban']
 df['Rural'] = area_dummies['Rural']
 df.head()
 
-X_all = df[['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term', 'Credit_History', 'Urban', 'Rural']]
-y_all = df['Loan_Status']
+features_list = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term', 'Credit_History', 'Urban', 'Rural']
+X_all = df[features_list]
+
+targets_list = ['Loan_Status']
+y_all = df[targets_list]
 y_all.head()
 
 X_train, X_test, y_train, y_test = train_test_split(X_all, y_all, test_size=0.2, random_state=42)
@@ -51,5 +54,11 @@ def predict(x):
 def simple_predict(x):
 	return model.predict(x)
 
+def features():
+	return features_list
+
+def categoricals():
+	return [0, 1, 2, 3, 4, 9, 10, 11]
+
 def classes():
-	model.classes_
+	return model.classes_
