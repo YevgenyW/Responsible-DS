@@ -4,12 +4,11 @@ import altair as alt
 from skater.core.explanations import Interpretation
 from skater.model import InMemoryModel
 
-def analyze(model_prediction, X_test, render=False):
-    skater_model = InMemoryModel(model_prediction, examples=X_test)
-    interpreter = Interpretation(X_test, feature_names=X_test.columns)
+def analyze(model_prediction, X_train, render=False):
+    skater_model = InMemoryModel(model_prediction, examples=X_train)
+    interpreter = Interpretation(X_train, feature_names=X_train.columns)
     
     result = interpreter.feature_importance.feature_importance(skater_model, ascending=False)
-    result = pd.DataFrame({'feature': result.index, 'importance': result.values})
     
     if render:
         return render_feature_importance(result)
@@ -17,6 +16,8 @@ def analyze(model_prediction, X_test, render=False):
         return result
 
 def render_feature_importance(result):
+    result = pd.DataFrame({'feature': result.index, 'importance': result.values})
+    
     return alt.Chart(result).mark_bar().encode(
         x=alt.X('importance', axis=alt.Axis(title='')),
         y=alt.Y(
