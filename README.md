@@ -7,12 +7,12 @@ This repo created for responsible data science project.
 
 ### Environment installation
 Create conda environment and install dependencies:
-`conda create --name myenv --file requirements.txt`
+`conda env create -f environment.yml`
 
 Install dependencies into an existing environment:
-`conda install --name myenv --file requirements.txt`
+`conda env update -n responsible-ds -f environment.yml --prune`
 
-In order to add a package to `requirements.txt` you need to install it locally and run `conda list --explicit > requirements.txt`.
+In order to add a package to `environment.yml` you need to install it locally and run `conda env export > environment.yml`.
 
 ### Other
 For more details about conda virtual environment:
