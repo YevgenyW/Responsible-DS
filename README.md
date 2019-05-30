@@ -20,3 +20,8 @@ https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environme
 
 Useful article how setup this repo in Google Colab:
 https://towardsdatascience.com/getting-started-with-google-colab-f2fff97f594c
+
+Contrastive explanation based on:
+https://arxiv.org/pdf/1806.07470.pdf
+and implementation from:
+https://github.com/MarcelRobeer/ContrastiveExplanation/blob/master/contrastive_explanation/contrastive_explanation.py
